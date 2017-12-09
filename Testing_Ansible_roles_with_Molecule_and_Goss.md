@@ -2,14 +2,14 @@
 
 Recently I found out about testing your own created [Ansible](https://www.ansible.com) roles with [Molecule](https://github.com/metacloud/molecule). The default verifier for Molecule is [Testinfra](http://testinfra.readthedocs.io/en/latest/), but it's also possible to use [Goss](https://github.com/aelsabbahy/goss). As noted on their GitHub page, Goss is a YAML based serverspec alternative tool for validating a server's configuration. As I wanted to use this combination, I had a hard time to find proper documentation and examples. That's why I created this document.
 
-For the installation of Ansible, Molecule and Goss I used a [Vagrant](https://www.vagrantup.com) [Centos 7](https://app.vagrantup.com/geerlingguy/boxes/centos7) box. The Vagrantfile can be found at {need to fill in the GitHub repository}.
+For the installation of Ansible, Molecule and Goss I used a [Vagrant](https://www.vagrantup.com) [Centos 7](https://app.vagrantup.com/geerlingguy/boxes/centos7) box. The Vagrantfile can be found at: [https://github.com/rdbraber/ansible\_molecule\_goss](https://github.com/rdbraber/ansible_molecule_goss).
 
 This blogpost is not about Vagrant and Git, so I assume that you're able to get the VM started.
 If you really want to get started right away, make sure both Git and Vagrant are installed and use the following commands to start the VM and the installation of Ansible, Molecule, Goss and Docker:
 
 ~~~
-git clone 
-cd 
+git clone https://github.com/rdbraber/ansible_molecule_goss.git
+cd ansible_molecule_goss
 vagrant up
 vagrant ssh
 ~~~
