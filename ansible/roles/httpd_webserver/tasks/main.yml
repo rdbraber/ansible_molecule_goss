@@ -1,0 +1,30 @@
+---
+# tasks file for httpd_webserver
+
+- name: Install the httpd package
+  yum:
+    name: httpd
+    state: installed
+
+- name: Start the webserver and make sure it is started at boot
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: Configure the webserver to run at port 8080
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^Listen '
+    insertafter: '^#Listen '
+    line: 'Listen 8080'
+  notify: restart httpd
+
+- name: Create testpage for the webserver
+  lineinfile:
+    path: /var/www/html/test.html
+    owner: apache
+    group: apache
+    mode: 0640
+    create: yes
+    line: 'testpage'
